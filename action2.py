@@ -44,7 +44,8 @@ def action2_fun():
     score['sum'] = -score['sum']
     print("Total Sort: ")
     for idx in sortIdx:
-        print(score[idx]['name'], ": ", score[idx]['sum'])
+        print(score[idx]['name'], ": Total: ", score[idx]['sum'], ": Chines: ", score[idx]['chinese'],
+              ": Math: ", score[idx]['math'], ": English: ", score[idx]['english'])
 
 
 if __name__ == '__main__':
