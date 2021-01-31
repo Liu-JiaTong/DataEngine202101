@@ -4,7 +4,7 @@ import numpy as np
 
 def action2_fun():
     scoreType = np.dtype({'names': ['name', 'chinese', 'math', 'english', 'sum'],
-                          'formats': ['S32', 'f', 'f', 'f', 'f']})
+                          'formats': ['U32', 'f', 'f', 'f', 'f']})
     score = np.array([("ZhangFei", 68, 65, 30, 0), ("GuanYu", 95, 76, 98, 0),
                       ("LiuBei", 98, 86, 88, 0), ("DianWei", 90, 88, 77, 0),
                       ("XuChu", 80, 90, 90, 0)], dtype=scoreType)
@@ -40,10 +40,11 @@ def action2_fun():
 
     # 个人成绩求和
     score['sum'] = -(score['chinese'] + score['math'] + score['english'])
-    score['sum'].sort()
+    sortIdx = score['sum'].argsort()
     score['sum'] = -score['sum']
     print("Total Sort: ")
-    print(score)
+    for idx in sortIdx:
+        print(score[idx]['name'], ": ", score[idx]['sum'])
 
 
 if __name__ == '__main__':
